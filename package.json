@@ -1,0 +1,21 @@
+{
+  "name": "util",
+  "version": "1.0.0",
+  "description": "New typescript project",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TuncayBasak25/util.git"
+  },
+  "author": "Tuncay Basak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TuncayBasak25/util/issues"
+  },
+  "homepage": "https://github.com/TuncayBasak25/util#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.22",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}
