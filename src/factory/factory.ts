@@ -46,7 +46,7 @@
 }
  */
 
-export default function Factory<T>() {
+export function Factory<T>() {
     abstract class Factory {
         static instanceList: T[] = [];
         static createCount: number = 0;

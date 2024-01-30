@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class sleep {
+exports.Sleep = void 0;
+class Sleep {
     static ms(time) {
         return this.sleep(time);
     }
@@ -20,4 +21,4 @@ class sleep {
         return new Promise((res, rej) => setTimeout(() => res(), time));
     }
 }
-exports.default = sleep;
+exports.Sleep = Sleep;

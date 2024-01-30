@@ -45,7 +45,7 @@
 
 }
  */
-export default function Factory<T>(): (abstract new () => {
+export declare function Factory<T>(): (abstract new () => {
     readonly id: 0;
     /**
      * Will be called automatically with the static create method of the class after the attribution of the instance ID.

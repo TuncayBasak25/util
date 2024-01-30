@@ -47,6 +47,7 @@
 }
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Factory = void 0;
 function Factory() {
     class Factory {
         constructor() {
@@ -78,4 +79,4 @@ function Factory() {
     Factory.createCount = 0;
     return Factory;
 }
-exports.default = Factory;
+exports.Factory = Factory;

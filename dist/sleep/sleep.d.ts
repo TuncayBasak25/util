@@ -1,4 +1,4 @@
-export default class sleep {
+export declare class Sleep {
     static ms(time: number): Promise<void>;
     static second(time: number): Promise<void>;
     static minute(time: number): Promise<void>;

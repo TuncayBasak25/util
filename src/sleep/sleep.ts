@@ -1,5 +1,5 @@
 
-export default class sleep {
+export class Sleep {
     static ms(time: number) {
         return this.sleep(time);
     }
