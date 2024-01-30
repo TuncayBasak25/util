@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Factory = void 0;
 function Factory() {
     var _a;
     return _a = class Constructable {
@@ -15,6 +14,12 @@ function Factory() {
                 //@ts-ignore
                 return instance;
             }
+            static createList(amount = 0) {
+                const instanceList = [];
+                for (let i = 0; i < amount; i++)
+                    instanceList.push(this.create());
+                return instanceList;
+            }
             destroy() {
                 this.constructor.instanceList.splice(this.constructor.instanceList.indexOf(this), 1);
             }
@@ -23,4 +28,4 @@ function Factory() {
         _a.createCount = 0,
         _a;
 }
-exports.Factory = Factory;
+exports.default = Factory;

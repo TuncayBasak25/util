@@ -1,4 +1,4 @@
-export declare function Factory<T>(): {
+export default function Factory<T>(): {
     new (): {
         readonly id: 0;
         destroy(): void;
@@ -6,5 +6,6 @@ export declare function Factory<T>(): {
     instanceList: T[];
     createCount: number;
     create(): T;
+    createList(amount?: number): T[];
 };
 //# sourceMappingURL=factory.d.ts.map

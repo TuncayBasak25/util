@@ -1,4 +1,4 @@
-export function Factory<T>() {
+export default function Factory<T>() {
     return class Constructable {
         static instanceList: T[] = [];
         static createCount: number = 0;
@@ -12,6 +12,14 @@ export function Factory<T>() {
             
             //@ts-ignore
             return instance;
+        }
+
+        static createList(amount = 0): T[] {
+            const instanceList: T[] = [];
+
+            for (let i=0; i<amount; i++) instanceList.push(this.create());
+
+            return instanceList;
         }
 
         public readonly id = 0;
