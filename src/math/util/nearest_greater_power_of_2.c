@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.h                                         :+:      :+:    :+:   */
+/*   nearest_greater_power_of_2.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 10:34:22 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/16 09:57:39 by tbasak            #+#    #+#             */
+/*   Updated: 2025/03/21 05:34:05 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STRING_H
-# define S_STRING_H
+#include "core.h"
 
-# include "core.h"
-# include "structs/s_buffer.h"
-
-typedef struct s_string
+t_u64	nearest_greater_power_of_2(t_u64 value)
 {
-	char		*chars;
-	t_u32		len;
-	t_buffer	buffer;
-}				t_string;
-
-#endif
+    value |= value >> 1;
+    value |= value >> 2;
+    value |= value >> 4;
+    value |= value >> 8;
+    value |= value >> 16;
+    value |= value >> 32;
+    value++;
+    return (value);
+}

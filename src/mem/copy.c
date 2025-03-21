@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.h                                         :+:      :+:    :+:   */
+/*   copy.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 10:34:22 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/21 04:59:37 by tbasak            #+#    #+#             */
+/*   Updated: 2025/03/21 05:00:48 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STRING_H
-# define S_STRING_H
+#include "mem.h"
 
-# include "core.h"
-# include "structs/s_buffer.h"
-
-typedef struct s_string
+void	mem_copy(void *dst, const void *src, t_u32 n)
 {
-	char		*chars;
-	t_u32		len;
-	t_buffer	buffer;
-}				t_string;
+	t_u8	*dst_byte;
+	t_u8	*src_byte;
 
-#endif
+	if (n > 0 && (!dst || !src))
+	{
+		error_log("mem_copy: dst or src null when n > 0");
+		return ;
+	}
+	dst_byte = (t_u8 *)dst;
+	src_byte = (t_u8 *)src;
+	while (n--)
+		*dst_byte++ = *src_byte++;
+}

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.h                                         :+:      :+:    :+:   */
+/*   enable_raw_mode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 10:34:22 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/21 08:15:29 by tbasak            #+#    #+#             */
+/*   Updated: 2025/03/21 08:26:36 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STRING_H
-# define S_STRING_H
+#include "terminal.h"
+#include "fd.h"
+#include <termios.h>
 
-# include "core.h"
-# include "structs/s_buffer.h"
-
-typedef struct s_string
+RESULT	term_enable_raw_mode(void)
 {
-	char		*chars;
-	t_u32		len;
-	t_buffer	buffer;
-}				t_string;
+	t_termios	*current;
 
-#endif
+	if (term_get_current(&current) == FAIL)
+		return (fail(FNAME));
+    current->c_lflag &= ~(ICANON | ECHO);
+	if (tcsetattr(FD_STDIN, TCSAFLUSH, current) == -1)
+		return (fail(FNAME));
+	return (SUCCESS);
+}

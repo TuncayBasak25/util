@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.h                                         :+:      :+:    :+:   */
+/*   restore.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 10:34:22 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/21 08:27:01 by tbasak            #+#    #+#             */
+/*   Updated: 2025/03/21 08:28:56 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STRING_H
-# define S_STRING_H
+#include "terminal.h"
+#include "fd.h"
+#include <termios.h>
 
-# include "core.h"
-# include "structs/s_buffer.h"
-
-typedef struct s_string
+RESULT	term_restore(void)
 {
-	char		*chars;
-	t_u32		len;
-	t_buffer	buffer;
-}				t_string;
+	t_termios	*original;
 
-#endif
+	if (term_get_original(&original) == FAIL)
+		return (fail(FNAME));
+	if (tcsetattr(FD_STDIN, TCSAFLUSH, original) == -1)
+		return (fail(FNAME));
+	return (SUCCESS);
+}

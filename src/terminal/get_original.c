@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.h                                         :+:      :+:    :+:   */
+/*   get_original.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 10:34:22 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/21 08:04:56 by tbasak            #+#    #+#             */
+/*   Updated: 2025/03/21 09:04:51 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STRING_H
-# define S_STRING_H
+#include "terminal.h"
+#include "fd.h"
+#include <termios.h>
 
-# include "core.h"
-# include "structs/s_buffer.h"
-
-typedef struct s_string
+RESULT	term_get_original(t_termios **original)
 {
-	char		*chars;
-	t_u32		len;
-	t_buffer	buffer;
-}				t_string;
+	static t_termios	original_state = (t_termios){0};
+	static t_bool		setled = FALSE;
 
-#endif
+	*original = &original_state;
+	if (setled)
+		return (SUCCESS);
+	if (tcgetattr(FD_STDIN, &original_state) == -1)
+		return (fail(FNAME));
+	setled = TRUE;
+	return (SUCCESS);
+}

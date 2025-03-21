@@ -6,12 +6,14 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 05:32:33 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/18 13:34:44 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/03/21 07:54:16 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CORE_H
 # define CORE_H
+
+# define FNAME __func__
 
 typedef unsigned char		t_u8;
 typedef unsigned short		t_u16;

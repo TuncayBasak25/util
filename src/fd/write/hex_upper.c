@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.h                                         :+:      :+:    :+:   */
+/*   hex_upper.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 10:34:22 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/15 07:05:00 by tbasak            #+#    #+#             */
+/*   Updated: 2025/03/21 05:22:53 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STRING_H
-# define S_STRING_H
+#include "fd.h"
+#include "string.h"
 
-# include "core.h"
-# include "structs/s_buffer.h"
-
-typedef struct s_string
+void	fd_write_hex_upper(t_fd fd, t_u64 number)
 {
-	char		*chars;
-	t_u32		len;
-	t_buffer	buffer;
-}				t_string;
+	t_string	string;
+	char		buffer[16];
 
-#endif
+	string_init_static(&string, buffer, sizeof(buffer));
+	string_push_hex_upper(&string, number);
+	fd_write_string(fd, &string);
+}
