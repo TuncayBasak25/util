@@ -8,8 +8,10 @@ CFLAGS = -Wall -Wextra -Werror -I./include
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(OBJ)
+$(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
+all: $(NAME)
 
 clean:
 	rm -f $(OBJ)
