@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 05:32:33 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 07:54:16 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/03/28 11:38:02 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ typedef enum e_result
 	FAIL
 }	t_result;
 # define RESULT t_result __attribute__((warn_unused_result))
+
+typedef enum e_option
+{
+	SOME,
+	NONE
+}	t_option;
+# define OPTION t_option __attribute__((warn_unused_result))
 
 typedef enum e_bool
 {
