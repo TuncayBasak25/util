@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.h                                         :+:      :+:    :+:   */
+/*   s_ptr_str.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/28 11:37:20 by tbasak           ###   ########.fr       */
+/*   Created: 2025/04/02 12:15:46 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/02 12:16:51 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_STRING_H
-# define S_STRING_H
+#ifndef S_PTR_STR
+# define S_PTR_STR
 
-# include "core.h"
-
-typedef struct s_string
-{
-	char	*chars;
-	t_u32	len;
-	t_u32	cap;
-}			t_string;
+typedef struct s_ptr_str	*t_ptr_str;
 
 #endif

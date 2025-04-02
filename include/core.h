@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 05:32:33 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/28 11:38:02 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/04/02 12:03:23 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,24 @@ typedef long long			t_i64;
 typedef float				t_f32;
 typedef double				t_f64;
 
-typedef enum e_result
+typedef char *				t_cstr;
+
+typedef struct s_ptr		*t_ptr;
+typedef struct s_heap		*t_heap;
+
+typedef enum e_res
 {
 	SUCCESS,
 	FAIL
-}	t_result;
-# define RESULT t_result __attribute__((warn_unused_result))
+}	t_res;
+# define RESULT t_res __attribute__((warn_unused_result))
 
-typedef enum e_option
+typedef enum e_opt
 {
 	SOME,
 	NONE
-}	t_option;
-# define OPTION t_option __attribute__((warn_unused_result))
+}	t_opt;
+# define OPTION t_opt __attribute__((warn_unused_result))
 
 typedef enum e_bool
 {
@@ -49,8 +54,8 @@ typedef enum e_bool
 }	t_bool;
 # define BOOL t_bool __attribute__((warn_unused_result))
 
-void		error_log(const char *cstring);
-t_result	fail(const char *cstring);
-void		println(const char *cstring);
+void	error_log(t_cstr msg);
+t_res	fail(t_cstr msg);
+void	println(t_cstr msg);
 
 #endif

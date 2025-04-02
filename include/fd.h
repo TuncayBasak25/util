@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 12:40:18 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 10:08:52 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/04/02 11:46:01 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FD_H
 
 # include "core.h"
-# include "structs/s_string.h"
+# include "structs/s_str.h"
 
 # define FD_STDIN 0
 # define FD_STDOUT 1
@@ -31,16 +31,16 @@ typedef enum e_fdmode
 	FD_RDWR,
 }	t_fdmode;
 
-RESULT	fd_open(t_fd *fd, const char *file_name, t_fdmode mode);
-RESULT	fd_create(t_fd *fd, const char *file_name, t_fdmode mode);
-RESULT	fd_append(t_fd *fd, const char *file_name, t_fdmode mode);
+RESULT	fd_open(t_fd *fd, t_cstr fname, t_fdmode mode);
+RESULT	fd_create(t_fd *fd, t_cstr fname, t_fdmode mode);
+RESULT	fd_append(t_fd *fd, t_cstr fname, t_fdmode mode);
 
 RESULT	fd_stat_byte_count(t_fd fd, t_u64 *size);
 
 RESULT	fd_read_to_buffer(t_fd fd, void *buffer, t_u32 buffer_size, t_u32 *byte_read);
 
-RESULT	fd_read_n_to_string(t_fd fd, t_string *string, t_u32 n);
-RESULT	fd_read_all_to_string(t_fd fd, t_string *string);
+RESULT	fd_read_n_to_str(t_fd fd, t_str *str, t_u32 n);
+RESULT	fd_read_all_to_str(t_fd fd, t_str *str);
 
 void	fd_write_buffer(t_fd fd, const void *buffer, t_u32 buffer_size);
 void	fd_write_char(t_fd fd, char c);

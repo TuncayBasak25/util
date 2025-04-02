@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cstring.h                                          :+:      :+:    :+:   */
+/*   s_slc.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 22:03:31 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 05:13:37 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/27 10:07:36 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/02 12:19:39 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CSTRING_H
-# define CSTRING_H
+#ifndef S_SLC_H
+# define S_SLC_H
 
 # include "core.h"
 
-t_u64	cstring_len(const char *cstring);
+typedef struct s_slc
+{
+	void	*buff;
+	t_u64	len;
+}			t_slc;
 
 #endif
