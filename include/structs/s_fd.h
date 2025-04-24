@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_ptr_str.h                                        :+:      :+:    :+:   */
+/*   s_fd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 12:15:46 by tbasak            #+#    #+#             */
-/*   Updated: 2025/04/02 12:16:51 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/19 07:27:42 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/24 17:27:24 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_PTR_STR
-# define S_PTR_STR
+#ifndef S_FD_H
+# define S_FD_H
 
-typedef struct s_ptr_str	*t_ptr_str;
+# include "core.h"
+
+typedef t_i32	t_fd;
 
 #endif

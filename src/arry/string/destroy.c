@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_opt_str.h                                        :+:      :+:    :+:   */
+/*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 10:31:17 by tbasak            #+#    #+#             */
-/*   Updated: 2025/04/02 10:38:05 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/16 09:10:16 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/09 15:46:33 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_OPT_STR
-# define S_OPT_STR
+#include "arry/arry_str.h"
 
-# include "structs/s_str.h"
-
-typedef struct s_opt_str
+void	arry_str_destroy(t_arry_str *self)
 {
-	t_str	value;
-	t_opt	option;
-}			t_opt_str;
-
-#endif
+	(void)arry_str_cap_resize(self, 0);
+}

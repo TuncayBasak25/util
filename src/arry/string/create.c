@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_ptr.h                                            :+:      :+:    :+:   */
+/*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 10:31:17 by tbasak            #+#    #+#             */
-/*   Updated: 2025/04/02 11:52:46 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/27 11:40:43 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/09 08:35:45 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_PTR
-# define S_PTR
+#include "arry/arry_str.h"
 
-typedef struct s_ptr	*t_ptr;
-
-#endif
+RESULT	arry_str_create(t_arry_str *self, t_u32 cap)
+{
+	*self = (t_arry_str){0};
+	if (arry_str_cap_resize(self, cap) == FAIL)
+		return (fail(FNAME));
+	return (SUCCESS);
+}

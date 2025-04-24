@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   allocate.c                                         :+:      :+:    :+:   */
+/*   s_arry_u32.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 09:10:16 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/27 10:44:34 by tbasak           ###   ########.fr       */
+/*   Created: 2025/03/27 10:07:36 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/24 19:27:44 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array/array_string.h"
+#ifndef S_ARRY_U32_H
+# define S_ARRY_U32_H
 
-RESULT	array_string_init_allocate(t_array_string *self, t_u32 cap)
+# include "core.h"
+
+typedef struct s_arry_u32
 {
-	*self = (t_array_string){0};
-	if (array_string_cap_extend(self, cap) == FAIL)
-		return (fail(FNAME));
-	return (SUCCESS);
-}
+	t_u32	*buff;
+	t_u32	len;
+	t_u32	cap;
+}			t_arry_u32;
+
+#endif

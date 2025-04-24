@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extend.c                                           :+:      :+:    :+:   */
+/*   resize.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 09:40:16 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/27 10:51:33 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/04/09 09:16:42 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array/array_string.h"
+#include "buffer.h"
+#include "arry/arry_str.h"
 #include "math.h"
 
-RESULT	array_string_cap_extend(t_array_string *self, t_u32 char_count)
+RESULT	arry_str_cap_resize(t_arry_str *self, t_u64 new_cap)
 {
-	t_u32	new_cap;
-
-	new_cap = self->len + char_count;
-	if (new_cap < char_count)
-		return (fail("array_string_cap_extend: integer overflow!"));
-	if (new_cap <= self->buffer.size)
-		return (SUCCESS);
-	new_cap = nearest_greater_power_of_2(new_cap);
-	if (new_cap < ARRAY_STRING_DEFAULT_MIN_CAP)
-		new_cap = ARRAY_STRING_DEFAULT_MIN_CAP;
-	if (array_string_cap_resize(self, new_cap) == FAIL)
+	if (self->len > new_cap)
+		self->len = new_cap;
+	new_cap *= sizeof(t_str);
+	if (buffer_resize((void **)&self->buff, &self->cap, new_cap) == FAIL)
 		return (fail(FNAME));
 	return (SUCCESS);
 }

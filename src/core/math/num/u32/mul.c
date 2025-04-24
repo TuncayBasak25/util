@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy.c                                          :+:      :+:    :+:   */
+/*   mul.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 09:10:16 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/27 10:52:34 by tbasak           ###   ########.fr       */
+/*   Created: 2025/04/09 08:52:12 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/09 09:08:11 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array/array_string.h"
+#include "math.h"
+#include <stdint.h>
 
-void	array_string_destroy(t_array_string *self)
+RESULT	u32_mul(t_u32 a, t_u32 b, t_u32 *out)
 {
-	if (array_string_cap_resize(self, 0) == FAIL)
-		return ;
-	*self = (t_array_string){0};
+	t_u64	result;
+
+	result = a * b;
+	if (result > UINT32_MAX)
+		return (fail("Integer overflow!"));
+	*out = result;
+	return (SUCCESS);
 }

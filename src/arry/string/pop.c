@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_heap.h                                           :+:      :+:    :+:   */
+/*   pop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 10:31:17 by tbasak            #+#    #+#             */
-/*   Updated: 2025/04/02 11:55:53 by tbasak           ###   ########.fr       */
+/*   Created: 2025/04/09 09:27:16 by tbasak            #+#    #+#             */
+/*   Updated: 2025/04/09 09:34:11 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_HEAP
-# define S_HEAP
+#include "arry/arry_str.h"
 
-typedef struct s_heap	*t_heap;
-
-#endif
+OPTION	arry_str_pop(t_arry_str *self, t_str *out)
+{
+	if (self->len == 0)
+		return (NONE);
+	*out = self->buff[--self->len];
+	return (SOME);
+}

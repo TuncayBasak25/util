@@ -6,14 +6,14 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 12:40:18 by tbasak            #+#    #+#             */
-/*   Updated: 2025/04/02 11:46:01 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/04/24 17:29:49 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FD_H
 # define FD_H
 
-# include "core.h"
+# include "structs/s_fd.h"
 # include "structs/s_str.h"
 
 # define FD_STDIN 0
@@ -21,8 +21,6 @@
 # define FD_STDERR 2
 
 # define FD_DEFAULT_READ_BUFFER_SIZE 1024
-
-typedef t_i32	t_fd;
 
 typedef enum e_fdmode
 {

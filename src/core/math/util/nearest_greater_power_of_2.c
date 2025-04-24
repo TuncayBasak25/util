@@ -6,13 +6,13 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 09:57:39 by tbasak            #+#    #+#             */
-/*   Updated: 2025/03/21 05:34:05 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/04/09 09:24:03 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core.h"
 
-t_u64	nearest_greater_power_of_2(t_u64 value)
+t_u64	nearest_greater_power_of_2(t_u64 value, t_u64 min)
 {
     value |= value >> 1;
     value |= value >> 2;
