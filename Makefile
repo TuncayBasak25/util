@@ -3,7 +3,7 @@ SRC = $(shell find src -name "*.c")
 OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./include
+CFLAGS = -Wall -Wextra -Werror -I./api -I./struct
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
