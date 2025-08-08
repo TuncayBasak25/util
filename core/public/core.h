@@ -6,7 +6,7 @@
 /*   By: tbasak <tbasak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 05:32:33 by tbasak            #+#    #+#             */
-/*   Updated: 2025/06/10 21:19:40 by tbasak           ###   ########.fr       */
+/*   Updated: 2025/08/08 15:02:08 by tbasak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 # define FNAME __func__
 # define USE __attribute__((warn_unused_result))
 
+typedef unsigned char		t_uchar;
 typedef unsigned char		t_u8;
 typedef unsigned short		t_u16;
 typedef unsigned int		t_u32;
 typedef unsigned long long	t_u64;
 typedef unsigned long long	t_size;
 
+typedef char				t_char;
 typedef char				t_i8;
 typedef short				t_i16;
 typedef int					t_i32;
